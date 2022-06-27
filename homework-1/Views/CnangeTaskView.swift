@@ -194,8 +194,8 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     }
 }
 
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        CnangeTaskView(newTask: TaskVM.shared.taskStorage[0], allTasks: TaskVM.shared)
-    }
-}
+//struct TaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CnangeTaskView(newTask: TaskVM.shared.taskStorage[0], allTasks: TaskVM.shared)
+//    }
+//}

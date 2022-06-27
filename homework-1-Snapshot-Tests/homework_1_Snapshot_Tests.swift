@@ -201,9 +201,112 @@ class homework_1_Snapshot_Tests: XCTestCase {
     }
     
     func testCreateTaskNotEmptyFieldsMedium() {
+        // Given
+        let viewModel = TaskVMMock()
+        let taskVM = CreateTaskVMMock()
+        let view = CreateTaskView(tasks: viewModel, task: taskVM)
 
+        // When
+        viewModel.taskStorage = []
+        taskVM.task = .init(name: "test", text: "test", priority: .medium)
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
     }
+    
+    func testCreateTaskEmptyNameFieldsHigh() {
+        // Given
+        let viewModel = TaskVMMock()
+        let taskVM = CreateTaskVMMock()
+        let view = CreateTaskView(tasks: viewModel, task: taskVM)
 
+        // When
+        viewModel.taskStorage = []
+        taskVM.task = .init(name: "", text: "test", priority: .high)
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    func testCreateTaskEmptyDescriptionFieldsCritical() {
+        // Given
+        let viewModel = TaskVMMock()
+        let taskVM = CreateTaskVMMock()
+        let view = CreateTaskView(tasks: viewModel, task: taskVM)
+
+        // When
+        viewModel.taskStorage = []
+        taskVM.task = .init(name: "test", text: "", priority: .critical)
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    // MARK: - Sorting
+
+    func testSortingFirstIsDone() {
+        // Given
+        let viewModel = TaskVMMock()
+        let view = MainView(tasks: viewModel, sectionState: [TaskPriority.critical.rawValue : true])
+
+        // When
+        viewModel.taskStorage = [.init(name: "test", text: "test", priority: .critical, isDone: true), .init(name: "test", text: "test", priority: .critical, isDone: false)]
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .sizeThatFits))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    func testSortingSecondIsDone() {
+        // Given
+        let viewModel = TaskVMMock()
+        let view = MainView(tasks: viewModel, sectionState: [TaskPriority.critical.rawValue : true])
+
+        // When
+        viewModel.taskStorage = [.init(name: "test", text: "test", priority: .critical, isDone: false), .init(name: "test", text: "test", priority: .critical, isDone: true)]
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .sizeThatFits))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    func testSortingAllAreDone() {
+        // Given
+        let viewModel = TaskVMMock()
+        let view = MainView(tasks: viewModel, sectionState: [TaskPriority.critical.rawValue : true])
+
+        // When
+        viewModel.taskStorage = [.init(name: "test", text: "test", priority: .critical, isDone: true), .init(name: "test", text: "test", priority: .critical, isDone: true)]
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .sizeThatFits))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    func testSortingAllAreNotDone() {
+        // Given
+        let viewModel = TaskVMMock()
+        let view = MainView(tasks: viewModel, sectionState: [TaskPriority.critical.rawValue : true])
+
+        // When
+        viewModel.taskStorage = [.init(name: "test", text: "test", priority: .critical, isDone: false), .init(name: "test", text: "test", priority: .critical, isDone: false)]
+        
+        // Then
+        assertSnapshot(matching: view, as: .image(layout: .sizeThatFits))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhoneSe)))
+        assertSnapshot(matching: view, as: .image(layout: .device(config: .iPhone12ProMax)))
+    }
+    
+    // MARK: - the end
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

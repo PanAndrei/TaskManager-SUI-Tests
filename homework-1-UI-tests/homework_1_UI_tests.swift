@@ -6,6 +6,66 @@
 //
 
 import XCTest
+@testable import homework_1
+
+
+class TasksVMTests: XCTestCase {
+    
+    var viewModel: TaskVM!
+    var mockedVM: TaskVMMock = TaskVMMock()
+    
+    override func setUp() {
+        super.setUp()
+        
+        viewModel = TaskVM()
+    }
+    
+    func testTasksEmptyStorage() {
+        // When
+        let expectedStorage: [TaskModel] = []
+        
+        // Given
+        viewModel.taskStorage = expectedStorage
+        
+        // Then
+        XCTAssertEqual(expectedStorage, mockedVM.taskStorage)
+    }
+    
+    func testOneTaskStorage() {
+        // When
+        let expectedStorage: [TaskModel] = [.init(name: "", text: "", priority: .low)]
+        
+        // Given
+        viewModel.taskStorage = expectedStorage
+        mockedVM.taskStorage = expectedStorage
+        
+        // Then
+        XCTAssertEqual(expectedStorage, mockedVM.taskStorage)
+    }
+}
+
+class CreateTaskTests: XCTestCase {
+    
+    var viewModel: CreateTaskVM!
+    var mockedVM: CreateTaskVMMock = CreateTaskVMMock()
+    
+    override func setUp() {
+        super.setUp()
+        
+        viewModel = CreateTaskVM()
+    }
+    
+    func testOneTaskStorage() {
+        // When
+        let expectedStorage: TaskModel = .init(name: "", text: "", priority: .low)
+        
+        // Given
+        viewModel.task = expectedStorage
+        
+        // Then
+        XCTAssertEqual(expectedStorage.taskText, mockedVM.task.taskText)
+    }
+}
 
 class homework_1_UI_tests: XCTestCase {
 

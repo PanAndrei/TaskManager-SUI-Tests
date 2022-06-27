@@ -17,6 +17,8 @@
 		B6AC2E5F2868DADB00237A05 /* TaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E5E2868DADB00237A05 /* TaskVMMock.swift */; };
 		B6AC2E6228699BA700237A05 /* CreateTaskVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E6128699BA700237A05 /* CreateTaskVM.swift */; };
 		B6AC2E642869A01300237A05 /* CreateTaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E632869A01300237A05 /* CreateTaskVMMock.swift */; };
+		B6AC2E6A2869BDA800237A05 /* TaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E682869BDA800237A05 /* TaskVMMock.swift */; };
+		B6AC2E6B2869BDA800237A05 /* CreateTaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E692869BDA800237A05 /* CreateTaskVMMock.swift */; };
 		B6EF0FC428429DFD0007B207 /* CnangeTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC328429DFD0007B207 /* CnangeTaskView.swift */; };
 		B6EF0FC72842A2820007B207 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC62842A2820007B207 /* TaskModel.swift */; };
 		B6EF0FCA2842A2C20007B207 /* TasksVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC92842A2C20007B207 /* TasksVM.swift */; };
@@ -59,6 +61,8 @@
 		B6AC2E5E2868DADB00237A05 /* TaskVMMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVMMock.swift; sourceTree = "<group>"; };
 		B6AC2E6128699BA700237A05 /* CreateTaskVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVM.swift; sourceTree = "<group>"; };
 		B6AC2E632869A01300237A05 /* CreateTaskVMMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVMMock.swift; sourceTree = "<group>"; };
+		B6AC2E682869BDA800237A05 /* TaskVMMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskVMMock.swift; path = "homework-1-Snapshot-Tests/Moks/TaskVMMock.swift"; sourceTree = SOURCE_ROOT; };
+		B6AC2E692869BDA800237A05 /* CreateTaskVMMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTaskVMMock.swift; path = "homework-1-Snapshot-Tests/Moks/CreateTaskVMMock.swift"; sourceTree = SOURCE_ROOT; };
 		B6EF0FC328429DFD0007B207 /* CnangeTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CnangeTaskView.swift; sourceTree = "<group>"; };
 		B6EF0FC62842A2820007B207 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B6EF0FC92842A2C20007B207 /* TasksVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVM.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				B6AC2E472868CD7500237A05 /* homework_1_UI_tests.swift */,
+				B6AC2E672869BD7B00237A05 /* Mocks */,
 			);
 			path = "homework-1-UI-tests";
 			sourceTree = "<group>";
@@ -164,6 +169,15 @@
 				B6AC2E632869A01300237A05 /* CreateTaskVMMock.swift */,
 			);
 			path = Moks;
+			sourceTree = "<group>";
+		};
+		B6AC2E672869BD7B00237A05 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B6AC2E692869BDA800237A05 /* CreateTaskVMMock.swift */,
+				B6AC2E682869BDA800237A05 /* TaskVMMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		B6EF0FC228429DE40007B207 /* Views */ = {
@@ -380,6 +394,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6AC2E482868CD7500237A05 /* homework_1_UI_tests.swift in Sources */,
+				B6AC2E6B2869BDA800237A05 /* CreateTaskVMMock.swift in Sources */,
+				B6AC2E6A2869BDA800237A05 /* TaskVMMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

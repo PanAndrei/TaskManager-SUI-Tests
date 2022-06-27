@@ -15,8 +15,8 @@ protocol TaskVMProtocol: ObservableObject {
 class TaskVM: TaskVMProtocol {
     @Published var taskStorage: [TaskModel] = []
 
-    // for test
-    static let shared = TaskVM()
+//    // for test
+//    static let shared = TaskVM()
     
     private let mainStorageKey = "tasks"
     private let userDefaultsStorage = UserDefaults.standard
