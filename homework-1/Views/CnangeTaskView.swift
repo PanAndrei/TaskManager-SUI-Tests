@@ -41,14 +41,14 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
         .onAppear {
             self.oldTask = newTask
         }
-        .navigationTitle(String.taskTitle)
+        .navigationTitle("Задача".localized)
     }
     
     @ViewBuilder
     private func buildTaskName() -> some View {
         if isChangingTask {
             HStack {
-                Text(String.taskTitle)
+                Text("Задача".localized)
                 
                 Spacer()
                 
@@ -61,8 +61,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
             .getBackground()
         } else {
             HStack {
-                Text(String.taskTitle)
-                
+                Text("Задача".localized)
                 Spacer()
                 Text(newTask.taskName)
             }
@@ -74,7 +73,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     private func buildTaskDescription() -> some View {
         if isChangingTask {
             HStack {
-                Text(String.taskDescription)
+                Text("Описание".localized)
                 
                 Spacer()
                 TextField(newTask.taskText, text: $newTask.taskText)
@@ -86,8 +85,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
             .getBackground()
         } else {
             HStack {
-                Text(String.taskDescription)
-                
+                Text("Описание".localized)
                 Spacer()
                 Text(newTask.taskText)
             }
@@ -99,16 +97,16 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     private func buildTaskPriority() -> some View {
         if isChangingTask {
             VStack {
-                Text(String.taskPriority)
+                Text("Приоритет".localized)
                 
                 Picker(selection: $newTask.priority) {
-                    Text(TaskPriority.critical.rawValue)
+                    Text(TaskPriority.critical.rawValue.localized)
                         .tag(TaskPriority.critical)
-                    Text(TaskPriority.high.rawValue)
+                    Text(TaskPriority.high.rawValue.localized)
                         .tag(TaskPriority.high)
-                    Text(TaskPriority.medium.rawValue)
+                    Text(TaskPriority.medium.rawValue.localized)
                         .tag(TaskPriority.medium)
-                    Text(TaskPriority.low.rawValue)
+                    Text(TaskPriority.low.rawValue.localized)
                         .tag(TaskPriority.low)
                 } label: {}
                 .pickerStyle(.segmented)
@@ -116,11 +114,10 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
             .getBackground()
         } else {
             HStack {
-                Text(String.taskPriority)
-                
+                Text("Приоритет".localized)
                 Spacer()
                 
-                Text(newTask.priority.rawValue)
+                Text(newTask.priority.rawValue.localized)
             }
             .getBackground()
         }
@@ -130,8 +127,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     private func buildTaskStatus() -> some View {
         if isChangingTask {
             HStack {
-                Text(newTask.isDone ? String.isDone : String.isNotDone)
-                
+                Text(newTask.isDone ? "Выполнено".localized : "Не.выполнено".localized)
                 Spacer()
                 
                 Toggle(isOn: $newTask.isDone) {}
@@ -139,12 +135,11 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
             .getBackground()
         } else {
             HStack {
-                Text(String.taskStatus)
+                Text("Статус".localized)
                 
                 Spacer()
                 
-                Text(newTask.isDone ? String.isDone : String.isNotDone)
-                
+                Text(newTask.isDone ? "Выполнено".localized : "Не.выполнено".localized)
             }
             .getBackground()
         }
@@ -161,7 +156,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
                     isChangingTask = false
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text(String.saveTask)
+                    Text("Сохранить".localized)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10)
                                         .stroke())
@@ -174,7 +169,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
                     newTask = oldTask!
                     isChangingTask = false
                 } label: {
-                    Text(String.cancellChanges)
+                    Text("Отменить".localized)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10)
                                         .stroke())
@@ -186,7 +181,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
             Button {
                 isChangingTask = true
             } label: {
-                Text(String.modifyTask)
+                Text("Редактировать".localized)
             }
             .foregroundColor(Color.black)
             .getBackground()
@@ -194,8 +189,3 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     }
 }
 
-//struct TaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CnangeTaskView(newTask: TaskVM.shared.taskStorage[0], allTasks: TaskVM.shared)
-//    }
-//}

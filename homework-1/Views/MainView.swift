@@ -7,36 +7,6 @@
 
 import SwiftUI
 
-/*
- Привет!
- 
- Сделал все основные задачи
- + группировка по папкам
- + сортировка по статусу выполнено с анимацией
- + по свайпу вправо - изменение статуса выполнено
- + по свайпу влево - удаление задачи
- 
- */
-
-/*
- 01/06 фиксы
- 
- Привет!
- 
- Пофиксил все, а именно:
- 
- 1. перевел текстовые лейблы в стринг статики + UDkey в VM
- 2. поправил
- 3. все прокидывается VM прокидывается во вьюхи, синглтон оставил только для тестов
- 4. методы переименовал, но не стал их выносить в отдельные саб вью, тк они используются 1 раз
- 5. то же самое )
- 6. переписал на форич как и в главной вьюхе
- 7. теперь кнопка сохранить задачу возвращает на главный экран, так же как и кнопка сохранить изменения
- 
- 8. Поправил сортировку задач при изменении статуса выполнено/нет - теперь сортируются только задачи в блоке
-    с этим статусом, а не вообще все
- 
- */
 
 struct MainView<ViewModel: TaskVMProtocol>: View {
     @StateObject var tasks: ViewModel
@@ -66,7 +36,7 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
                 }
                 .listStyle(GroupedListStyle())
             }
-            .navigationTitle(String.tasksList)
+            .navigationTitle("Список.задач".localized)
         }
         .navigationViewStyle(.stack)
     }
@@ -78,11 +48,9 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
     @ViewBuilder
     private func buildCreateTaskSection() -> some View {
         NavigationLink {
-//            CreateTaskView(tasks: tasks)
-//            let task: some CreateTaskVMProtocol = CreateTaskVM()
             CreateTaskView(tasks: tasks, task: CreateTaskVM())
         } label: {
-            Text(String.addTask)
+            Text("Добавить.новую.задачу".localized)
         }
         .padding()
         .background(Color.blue.opacity(0.5))
@@ -92,7 +60,7 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
     @ViewBuilder
     private func buildHeaderSection(priority: TaskPriority) -> some View {
         HStack {
-            Text(priority.rawValue)
+            Text(priority.rawValue.localized)
             Spacer()
             Text("\(tasks.taskStorage.filter { $0.priority == priority }.count)")
         }
@@ -127,7 +95,6 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
                             !t1.isDone && t1.priority == priority
                         })
                     }
-                    
                 } label: {
                     Image(task.isDone ? Images.changeToNotDone.rawValue : Images.changeToDone.rawValue)
                 }

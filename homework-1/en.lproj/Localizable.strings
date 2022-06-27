@@ -1,0 +1,26 @@
+/* 
+  Localization.strings
+  homework-1
+
+  Created by Andrei Panasenko on 27.06.2022.
+  
+*/
+
+"Критический" = "Critacal";
+"Высокий" = "High";
+"Средний" = "Middle";
+"Низкий" = "Low";
+"Список.задач" = "Task list";
+"Добавить.новую.задачу" = "Add new task";
+"Задача" = "Task";
+"Описание" = "Description";
+"Приоритет" = "Priority";
+"Статус" = "Status";
+"Выполнено" = "Is done";
+"Не.выполнено" = "Is not done";
+"Сохранить" = "Save";
+"Отменить" = "Cancell";
+"Редактировать" = "Change";
+"Название.задачи" = "Task name * ";
+"обязательное.поле.для.исполнения" = "* - is need to be filled";
+"Введите.текст" = "Enter text";

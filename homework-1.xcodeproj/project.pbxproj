@@ -19,6 +19,7 @@
 		B6AC2E642869A01300237A05 /* CreateTaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E632869A01300237A05 /* CreateTaskVMMock.swift */; };
 		B6AC2E6A2869BDA800237A05 /* TaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E682869BDA800237A05 /* TaskVMMock.swift */; };
 		B6AC2E6B2869BDA800237A05 /* CreateTaskVMMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC2E692869BDA800237A05 /* CreateTaskVMMock.swift */; };
+		B6AC2E722869D5AD00237A05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6AC2E742869D5AD00237A05 /* Localizable.strings */; };
 		B6EF0FC428429DFD0007B207 /* CnangeTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC328429DFD0007B207 /* CnangeTaskView.swift */; };
 		B6EF0FC72842A2820007B207 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC62842A2820007B207 /* TaskModel.swift */; };
 		B6EF0FCA2842A2C20007B207 /* TasksVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF0FC92842A2C20007B207 /* TasksVM.swift */; };
@@ -63,6 +64,8 @@
 		B6AC2E632869A01300237A05 /* CreateTaskVMMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVMMock.swift; sourceTree = "<group>"; };
 		B6AC2E682869BDA800237A05 /* TaskVMMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskVMMock.swift; path = "homework-1-Snapshot-Tests/Moks/TaskVMMock.swift"; sourceTree = SOURCE_ROOT; };
 		B6AC2E692869BDA800237A05 /* CreateTaskVMMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTaskVMMock.swift; path = "homework-1-Snapshot-Tests/Moks/CreateTaskVMMock.swift"; sourceTree = SOURCE_ROOT; };
+		B6AC2E732869D5AD00237A05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B6AC2E752869D5B200237A05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B6EF0FC328429DFD0007B207 /* CnangeTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CnangeTaskView.swift; sourceTree = "<group>"; };
 		B6EF0FC62842A2820007B207 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B6EF0FC92842A2C20007B207 /* TasksVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVM.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 				B6EF0FD0284378950007B207 /* Enums */,
 				B60AB8B12840B94200C3A044 /* Assets.xcassets */,
 				B60AB8B32840B94200C3A044 /* Preview Content */,
+				B6AC2E742869D5AD00237A05 /* Localizable.strings */,
 			);
 			path = "homework-1";
 			sourceTree = "<group>";
@@ -326,6 +330,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B60AB8A12840B94100C3A044;
 			packageReferences = (
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60AB8B52840B94200C3A044 /* Preview Assets.xcassets in Resources */,
+				B6AC2E722869D5AD00237A05 /* Localizable.strings in Resources */,
 				B60AB8B22840B94200C3A044 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +429,18 @@
 			targetProxy = B6AC2E562868CDFD00237A05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B6AC2E742869D5AD00237A05 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AC2E732869D5AD00237A05 /* en */,
+				B6AC2E752869D5B200237A05 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B60AB8B62840B94200C3A044 /* Debug */ = {
