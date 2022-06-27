@@ -38,9 +38,9 @@ import SwiftUI
  
  */
 
-struct MainView: View {
-    @StateObject var tasks: TaskVM = TaskVM()
-    @State var sectionState: [String : Bool] = [:]
+struct MainView<ViewModel: TaskVMProtocol>: View {
+    @StateObject var tasks: ViewModel
+    @State var sectionState: [String : Bool]
     
     var body: some View {
         NavigationView {
@@ -78,7 +78,9 @@ struct MainView: View {
     @ViewBuilder
     private func buildCreateTaskSection() -> some View {
         NavigationLink {
-            CreateTaskView(tasks: tasks)
+//            CreateTaskView(tasks: tasks)
+//            let task: some CreateTaskVMProtocol = CreateTaskVM()
+            CreateTaskView(tasks: tasks, task: CreateTaskVM())
         } label: {
             Text(String.addTask)
         }
@@ -134,11 +136,7 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+
 
 
 

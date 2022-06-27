@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CnangeTaskView: View {
+struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var isChangingTask: Bool = false
     @State var oldTask: TaskModel?
     @State var newTask: TaskModel
     
-    var allTasks: TaskVM
+    var allTasks: ViewModel
     
     var body: some View {
         ZStack {

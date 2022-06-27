@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct homework_1App: App {
+    let tasks: some TaskVMProtocol = TaskVM()
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(tasks: tasks, sectionState: [:])
         }
     }
 }

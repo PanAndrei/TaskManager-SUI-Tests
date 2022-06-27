@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-class TaskVM: ObservableObject {
+protocol TaskVMProtocol: ObservableObject {
+    var taskStorage: [TaskModel] { get set }
+}
+
+class TaskVM: TaskVMProtocol {
     @Published var taskStorage: [TaskModel] = []
 
     // for test
