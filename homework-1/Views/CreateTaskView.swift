@@ -73,7 +73,7 @@ struct CreateTaskView<ViewModel: TaskVMProtocol, TaskViewModel: CreateTaskVMProt
         VStack {
             Text("обязательное.поле.для.исполнения".localized)
             Button {
-                tasks.taskStorage.append(task.task)
+                tasks.addTask(task: task.task)
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Добавить.новую.задачу".localized)

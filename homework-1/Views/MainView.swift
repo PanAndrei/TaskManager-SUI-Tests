@@ -62,7 +62,7 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
         HStack {
             Text(priority.rawValue.localized)
             Spacer()
-            Text("\(tasks.taskStorage.filter { $0.priority == priority }.count)")
+            Text(tasks.getNumberOfTasks(priority: priority))
         }
         .padding()
         .background(priority.color)
@@ -71,7 +71,7 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
     
     @ViewBuilder
     private func buildTaskSection(priority: TaskPriority) -> some View {
-        ForEach(tasks.taskStorage.filter { $0.priority == priority} ) { task in
+        ForEach(tasks.filterTasks(byPriority: priority)) { task in
             NavigationLink {
                 CnangeTaskView(newTask: task, allTasks: tasks)
             } label: {
@@ -79,21 +79,17 @@ struct MainView<ViewModel: TaskVMProtocol>: View {
             }
             .swipeActions(edge: .trailing) {
                 Button(role: .destructive) {
-                    let index = tasks.taskStorage.firstIndex(of: task)
-                    tasks.taskStorage.remove(at: index!)
+                    tasks.removeTask(matchingTask: task)
                 } label: {
                     Image(systemName: Images.delete.rawValue)
                 }
             }
             .swipeActions(edge: .leading) {
                 Button {
-                    let index = tasks.taskStorage.firstIndex(of: task)
-                    tasks.taskStorage[index!].isDone.toggle()
-                    
+                    tasks.updateTaskStatus(matching: task)
+
                     withAnimation(.easeIn) {
-                        tasks.taskStorage.sort(by: { t1, _ in
-                            !t1.isDone && t1.priority == priority
-                        })
+                        tasks.sortTasks(byPriority: priority)
                     }
                 } label: {
                     Image(task.isDone ? Images.changeToNotDone.rawValue : Images.changeToDone.rawValue)

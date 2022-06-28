@@ -150,8 +150,7 @@ struct CnangeTaskView<ViewModel: TaskVMProtocol>: View {
         if isChangingTask {
             HStack {
                 Button {
-                    let index = allTasks.taskStorage.firstIndex(of: oldTask!)
-                    allTasks.taskStorage[index!] = newTask
+                    allTasks.updateTask(withTask: newTask, oldTask: oldTask!)
                     oldTask = newTask
                     isChangingTask = false
                     self.presentationMode.wrappedValue.dismiss()
