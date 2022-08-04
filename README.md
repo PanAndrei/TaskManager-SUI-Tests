@@ -1,6 +1,6 @@
-SWiftUI
-MVVM
-Unit + Snapshot tests
-Combine
-Localization
-Saving Data
+- SWiftUI
+- MVVM
+- Unit + Snapshot tests
+- Combine
+- Localization
+- Saving Data
